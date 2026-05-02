@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class QuestionBank
 {
@@ -22,14 +23,54 @@ public class QuestionBank
     // methods
 
     // adding questions to the bank
+    // sort by category, so each key is a category
+    // that points to a list of quesitons in that category
+    // if teh category already exists, don't make a new list
+
+
     public void addQuestion(Question question)
     {
-        String category = question.getQuestion();
+        // get the category
+        String category = question.getCategory();
+
+        // now make the list that the questions go into
+        // only make a new one if there's a new cateogyr
         if (!questionBank.containsKey(category)) 
         {
             questionBank.put(category, new ArrayList<>());
+
         }
 
 
+        // if it's already there, put it in the array list assosciated iwth the category
+        questionBank.get(category).add(question);
+
+
     }
+
+
+    // alr method time
+
+    // acessor methods
+
+    // get the bank
+    // idk how this might be used but it's ok
+    public Map< String, List<Question>> getBank()
+    {
+        return questionBank;
+    }
+
+    // get all the questions for a category
+    public List<Question> getCategoryQuestions(String category)
+    {
+        return questionBank.get(category);
+    }
+
+    // get all the categories
+    public Set<String> getAllCategories()
+    {
+        return questionBank.keySet();
+    }
+    
+
 }
