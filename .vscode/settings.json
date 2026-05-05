@@ -3,29 +3,6 @@
     "src"
   ],
   "java.project.referencedLibraries": [
-    "lib\\opencsv-5.12.0.jar",
-    "c:\\Users\\alex\\Documents\\GitHub\\jeopardy\\lib\\opencsv-5.12.0.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.web.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.swing.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.media.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/jdk.jsobject.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/jfx.incubator.richtext.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/jfx.incubator.input.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx-swt.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.graphics.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.fxml.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.controls.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1/lib/javafx.base.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.base.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.controls.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.web.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.swing.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/jdk.jsobject.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.graphics.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.media.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx-swt.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/jfx.incubator.input.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/jfx.incubator.richtext.jar",
-    "/Users/hannahzhang/Downloads/javafx-sdk-26.0.1 2/lib/javafx.fxml.jar"
+    "lib/opencsv-5.12.0.jar"
   ]
 }
