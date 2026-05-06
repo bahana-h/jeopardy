@@ -9,7 +9,7 @@ public class HomePage {
         JFrame frame = new JFrame();
 
         // changing font
-        Font myFont = new Font("Cantarell", Font.BOLD, 40);
+        Font title = new Font("Cantarell", Font.BOLD, 40);
 
         // adding in the button that enters the game
         JButton button = new JButton("enter");
@@ -20,7 +20,7 @@ public class HomePage {
         // adding in the welcome stuff + CENTERED STUFF
         JLabel welcome = new JLabel("welcome to jeopardy!", SwingConstants.CENTER);
         welcome.setBounds(500, 200, 500, 200);
-        welcome.setFont(myFont);
+        welcome.setFont(title);
         frame.add(welcome);
 
         // the frame stuff
