@@ -13,8 +13,7 @@ public class Processor
 
         try
         {
-            CSVReader reader =
-                new CSVReader(new FileReader(filename));
+            CSVReader reader = new CSVReader(new FileReader(filename));
 
             String[] row;
 
@@ -32,19 +31,10 @@ public class Processor
 
                 // removes the $ sign
                 // turns "$400" into 400
-                int value =
-                    Integer.parseInt(
-                        valueStr.replace("$", "").trim()
-                    );
+                int value = Integer.parseInt(valueStr.replace("$", "").trim());
 
                 // creates a Question object
-                Question q =
-                    new Question(
-                        category,
-                        question,
-                        answer,
-                        value
-                    );
+                Question q =new Question(category,question,answer,value);
 
                 // adds it to the QuestionBank
                 bank.addQuestion(q);
