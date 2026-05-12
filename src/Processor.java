@@ -30,7 +30,6 @@ public class Processor
                 String answer = row[3].trim();
 
                 // removes the $ sign
-                // turns "$400" into 400
                 int value = Integer.parseInt(valueStr.replace("$", "").trim());
 
                 // creates a Question object
