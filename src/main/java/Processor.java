@@ -1,51 +1,62 @@
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import com.opencsv.CSVReader;
-import java.io.FileReader;
 
-public class Processor
-{
-    // reads the csv file and turns everything
-    // into Question objects stored in a QuestionBank
+// csv reader works much like the scanner class
 
-    public static QuestionBank load(String filename)
-    {
+public class Processor {
+
+    public static QuestionBank load(String filename) {
         QuestionBank bank = new QuestionBank();
 
-        try
+        try 
         {
-            CSVReader reader = new CSVReader(new FileReader(filename));
+            // load file from src/main/resources
+            // uses stream methods
+            InputStream is = Processor.class.getClassLoader().getResourceAsStream(filename);
+
+            // safeguard
+            if (is == null) 
+            {
+                throw new RuntimeException("File not found in resources: " + filename);
+            }
+
+            CSVReader reader = new CSVReader(new InputStreamReader(is));
 
             String[] row;
 
-            // skips the first line
-            // (Category, Value, Question, Answer)
+            // skip header
             reader.readNext();
 
-            // keeps reading until there are no more rows
-            while ((row = reader.readNext()) != null)
-            {
+            while ((row = reader.readNext()) != null) {
+
                 String category = row[0].trim();
                 String valueStr = row[1].trim();
                 String question = row[2].trim();
                 String answer = row[3].trim();
-
-                // removes the $ sign
+            
+                // remove dollar signs 
+                // to get integer points that can be used
                 int value = Integer.parseInt(valueStr.replace("$", "").trim());
 
-                // creates a Question object
-                Question q =new Question(category,question,answer,value);
-
-                // adds it to the QuestionBank
+                Question q = new Question(category, question, answer, value);
                 bank.addQuestion(q);
             }
 
+            // jst like the scanner class in java
             reader.close();
-        }
 
-        catch (Exception e)
+        } 
+        
+
+        // req'd exception catch
+        catch (Exception e) 
         {
             e.printStackTrace();
+
         }
+
 
         return bank;
     }
