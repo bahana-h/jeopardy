@@ -15,5 +15,6 @@
     "c:\\Users\\alex\\Documents\\GitHub\\jeopardy\\lib\\jfx.incubator.input.jar",
     "c:\\Users\\alex\\Documents\\GitHub\\jeopardy\\lib\\javafx.fxml.jar",
     "c:\\Users\\alex\\Documents\\GitHub\\jeopardy\\lib\\javafx.media.jar"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
