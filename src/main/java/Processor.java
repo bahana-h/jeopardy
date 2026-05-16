@@ -46,7 +46,9 @@ public class Processor {
 
                 int value = 
                 Integer.parseInt
+                // removes dollar sign for safe parsing
                 (valueStr.replace("$", "")
+                // also replaces the comma in numbers for thousands
                 .replace(",", "").trim());
 
                 // alright alright alright
