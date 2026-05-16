@@ -38,7 +38,23 @@ public class Processor {
             
                 // remove dollar signs 
                 // to get integer points that can be used
-                int value = Integer.parseInt(valueStr.replace("$", "").trim());
+
+                // was causing issues as x,xxx format with the comma
+                // could not be parced
+                // so commas inside numbers must also be removed
+
+
+                int value = 
+                Integer.parseInt
+                (valueStr.replace("$", "")
+                .replace(",", "").trim());
+
+                // alright alright alright
+                // after running this 5/15 10:09 PM
+                // some of the questoin values 
+                // are literally "None"
+                // T-T
+                // so we need to work around that
 
                 Question q = new Question(category, question, answer, value);
                 bank.addQuestion(q);
@@ -51,9 +67,10 @@ public class Processor {
         
 
         // req'd exception catch
+        // the throw command gives better and clearer feedback
         catch (Exception e) 
         {
-            e.printStackTrace();
+            throw new RuntimeException("error on CSV", e);
 
         }
 
