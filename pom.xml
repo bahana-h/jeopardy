@@ -1,3 +1,6 @@
+<!-- is this how you do comments -->
+<!-- I guess-->
+<!-- Maven reads this and manages everything!!!-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -14,7 +17,7 @@
     </properties>
 
     <dependencies>
-        <!-- OpenCSV for reading CSV files -->
+        <!-- openCSV for reading the big CSV file -->
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
