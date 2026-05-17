@@ -44,4 +44,19 @@ public class Question
     {
         return myAcceptableAnswers;
     }
+
+
+
+    // overriding the object ToString
+    // so we don't use the default object one
+
+    // yellow line under toString says add an override annotation
+    @Override
+    public String toString()
+    {
+         return (myCategory + " | $" 
+         + myScore + " | " 
+         + myQuestion + " | " 
+         + myAcceptableAnswers);
+    }
 }

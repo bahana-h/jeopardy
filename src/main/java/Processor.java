@@ -43,20 +43,29 @@ public class Processor {
                 // could not be parced
                 // so commas inside numbers must also be removed
 
-
-                int value = 
-                Integer.parseInt
-                // removes dollar sign for safe parsing
-                (valueStr.replace("$", "")
-                // also replaces the comma in numbers for thousands
-                .replace(",", "").trim());
-
                 // alright alright alright
                 // after running this 5/15 10:09 PM
                 // some of the questoin values 
                 // are literally "None"
                 // T-T
                 // so we need to work around that
+
+                valueStr = 
+                valueStr.replace
+                ("$", "").
+                replace(",", "").trim();
+
+                // now we can do the parsing on it 
+                int value;
+
+                if (valueStr.equalsIgnoreCase("None"))
+                {
+                    value = 0;
+                }
+                else
+                {
+                    value = Integer.parseInt(valueStr);
+                }
 
                 Question q = new Question(category, question, answer, value);
                 bank.addQuestion(q);
