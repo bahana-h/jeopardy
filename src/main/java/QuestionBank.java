@@ -68,9 +68,28 @@ public class QuestionBank
     }
 
     // get all the categories
-    public Set<String> getAllCategories()
+
+    // because we're trying to get random categoreis later
+    // i assume it's better to make this something like an array...?
+    // so we can acess random indexes to get random categories
+
+    public String[] getAllCategories()
     {
-        return questionBank.keySet();
+        // the set of strings
+        Set<String> keySet = questionBank.keySet();
+        // make it into an array
+        // thank god there's just a method called 
+        // "toArray" praise the java overlords
+
+        // BUT since there is an object type mismatch
+        // we have to feed it the type 
+        // which is String
+        
+        String[] allCategoriesArray = keySet.toArray(new String[0]);
+
+
+
+        return allCategoriesArray;
     }
     
 

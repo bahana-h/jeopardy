@@ -1,3 +1,4 @@
-public class EndPage {
-    
+public class EndPage 
+{
+    // end page?
 }
