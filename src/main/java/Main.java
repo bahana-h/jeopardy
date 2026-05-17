@@ -19,24 +19,24 @@ public class Main
         // let's say 10 categories?
 
         // 
-        int printed = 0;
+        // int printed = 0;
 
-        for (String category : bank.getAllCategories())
-        {
-            List<Question> questions = bank.getCategoryQuestions(category);
+        // for (String category : bank.getAllCategories())
+        // {
+        //     List<Question> questions = bank.getCategoryQuestions(category);
 
-            for (Question q : questions)
-            {
-                System.out.println(q);
+        //     for (Question q : questions)
+        //     {
+        //         System.out.println(q);
 
-                printed++;
+        //         printed++;
 
-                if (printed >= 10)
-                {
-                    return;
-                }
-            }
-        }
+        //         if (printed >= 10)
+        //         {
+        //             return;
+        //         }
+        //     }
+        // }
 
         // output looks like
         // Question@5305068a
@@ -51,6 +51,26 @@ public class Main
 
         // overriden and works
         // test good
+
+
+        // ALR
+        // NOW FOR THE BIG KAHUNA
+        // let's choose a random category
+        // and print all the questions (whole objects? sure)
+        // from that category
+        // i'll go make a method for this in Question bank
+        // then come back here and test it
+
+        System.out.println("printing a random category's questions");
+
+        List<Question> testList = bank.getRandomCategoryQuestions();
+
+        for (Question q : testList)
+        {
+            System.out.println(q);
+        }
+
+
     }
 }
 

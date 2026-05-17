@@ -67,6 +67,34 @@ public class QuestionBank
         return questionBank.get(category);
     }
 
+    // now now
+    // the real useful one
+    // getting the list of the questions
+    // from a randomly selected category
+
+    // the gui can acess the question objects and the data later
+
+    public List<Question> getRandomCategoryQuestions()
+    {
+        // get random category
+        // so we need to acess a random index from all the cateogires
+
+        String[] allCategories = getAllCategories();
+
+        int randomIndex = (int)(Math.random() * (allCategories.length));
+
+        String randomCategory = allCategories[randomIndex];
+
+        // so so so
+        // because the list of categores is SO BIG
+        // it's quite possibly ok not removing the category
+        // because the chance of getting the same category is 
+        // like what
+        // 1/ (THOUSANDS squared)
+        
+        return (getCategoryQuestions(randomCategory));
+    }
+
     // get all the categories
 
     // because we're trying to get random categoreis later
@@ -84,7 +112,7 @@ public class QuestionBank
         // BUT since there is an object type mismatch
         // we have to feed it the type 
         // which is String
-        
+
         String[] allCategoriesArray = keySet.toArray(new String[0]);
 
 
@@ -92,5 +120,6 @@ public class QuestionBank
         return allCategoriesArray;
     }
     
+
 
 }

@@ -1,8 +1,8 @@
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.event.ActionListener;
+import java.awt.CardLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 // color picker: https://www.rapidtables.com/web/color/RGB_Color.html
 // sources: https://docs.oracle.com/javase/tutorial/uiswing/layout/card.html
@@ -13,7 +13,8 @@ public class Jeopardy extends JFrame {
     // this holds all the pages
     private JPanel everything = new JPanel(overall);
 
-    public Jeopardy() {
+    public Jeopardy() 
+    {
         setTitle("Jeopardy");
         // this like closes the program completely when the x is clicked
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
