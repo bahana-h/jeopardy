@@ -1,5 +1,8 @@
 // PLACEHOLDER
 // TODO: FIX THIS AND MAKE THIS START EVERYTHING
+// it's gonna be moved to jeopardy
+// this is just Sasha's personal playground
+
 
 import java.util.List;
 
