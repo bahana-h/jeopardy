@@ -1,3 +1,6 @@
+// the MAIN main? move everything?
+
+
 // // import java.lang.Object;
 // import javafx.application.Application;
 // import javafx.stage.Stage;
