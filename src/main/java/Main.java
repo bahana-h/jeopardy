@@ -74,6 +74,22 @@ public class Main
         }
 
 
+        // alright that all works
+        // now
+        // next test is print a question
+        // get the answer
+        // check it
+        // award earned points
+
+        System.out.println("printing a random question for you to answer");
+
+        List<Question> testList2 = bank.getRandomCategoryQuestions();
+
+        // the 100 dolla question
+        System.out.println(testList2.get(0));
+
+        
+
     }
 }
 
