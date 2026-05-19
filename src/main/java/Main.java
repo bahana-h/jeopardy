@@ -3,8 +3,8 @@
 // it's gonna be moved to jeopardy
 // this is just Sasha's personal playground
 
-
 import java.util.List;
+import java.util.Scanner;
 
 public class Main 
 {
@@ -87,6 +87,28 @@ public class Main
 
         // the 100 dolla question
         System.out.println(testList2.get(0));
+
+        System.out.println(testList.get(0).getAcceptableAnswers());
+
+        System.out.println("answer: ");
+
+        Scanner scanner = new Scanner(System.in);
+        
+        String answer = scanner.nextLine();
+
+        
+
+        if (answer.equalsIgnoreCase(testList2.get(0).getAcceptableAnswers()))
+        {
+            System.out.println("correct");
+        }
+
+        else
+        {
+            System.out.println("the answer's literally printed for you rn");
+        }
+
+        scanner.close();
 
         
 
