@@ -86,9 +86,9 @@ public class Main
         List<Question> testList2 = bank.getRandomCategoryQuestions();
 
         // the 100 dolla question
-        System.out.println(testList2.get(0));
+        System.out.println(testList2.get(0).getQuestion());
 
-        System.out.println(testList2.get(0).getAcceptableAnswers());
+        //System.out.println(testList2.get(0).getAnswer());
 
         System.out.println("answer: ");
 
@@ -98,7 +98,7 @@ public class Main
 
         
 
-        if (answer.equalsIgnoreCase(testList2.get(0).getAcceptableAnswers()))
+        if (answer.equalsIgnoreCase(testList2.get(0).getAnswer()))
         {
             System.out.println("correct");
         }
@@ -106,11 +106,10 @@ public class Main
         else
         {
             System.out.println("the answer's literally printed for you rn");
+            System.out.println(testList2.get(0).getAnswer());
         }
 
         scanner.close();
-
-        
 
     }
 }

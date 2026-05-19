@@ -40,7 +40,7 @@ public class Question
         return myQuestion;
     }
 
-    public String getAcceptableAnswers()
+    public String getAnswer()
     {
         return myAcceptableAnswers;
     }
