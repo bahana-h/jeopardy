@@ -64,14 +64,14 @@ public class Main
         // i'll go make a method for this in Question bank
         // then come back here and test it
 
-        System.out.println("printing a random category's questions");
+        // System.out.println("printing a random category's questions");
 
-        List<Question> testList = bank.getRandomCategoryQuestions();
+        // List<Question> testList = bank.getRandomCategoryQuestions();
 
-        for (Question q : testList)
-        {
-            System.out.println(q);
-        }
+        // for (Question q : testList)
+        // {
+        //     System.out.println(q);
+        // }
 
 
         // alright that all works
@@ -88,7 +88,7 @@ public class Main
         // the 100 dolla question
         System.out.println(testList2.get(0));
 
-        System.out.println(testList.get(0).getAcceptableAnswers());
+        System.out.println(testList2.get(0).getAcceptableAnswers());
 
         System.out.println("answer: ");
 
