@@ -56,9 +56,17 @@ public class QuestionPage extends JDialog
         bottom.add(submit);
         bottom.add(result);
 
+        // future stealing implementation?
+        JButton steal = new JButton("steal?");
+        //bottom.add(steal);
+
         panel.add(bottom, BorderLayout.SOUTH);
 
-        // answer checking
+        // 
+        // ANSWER CHECKING
+        // we'll probably change this
+        // it is too unforgiving now
+
         submit.addActionListener(e -> {
 
             String userAnswer = answerField.getText().trim();
@@ -68,10 +76,12 @@ public class QuestionPage extends JDialog
                 result.setText("Correct!");
                 result.setForeground(Color.GREEN);
             }
+
             else
             {
                 result.setText("Wrong!");
                 result.setForeground(Color.RED);
+                bottom.add(steal);
             }
         });
 
