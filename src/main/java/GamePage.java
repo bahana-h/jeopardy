@@ -54,6 +54,23 @@ public class GamePage extends JPanel{
 
         }
 
+        // alr categories done
+
+        // NOW LET'S PUT THE QUESTIONS ON THE BOOOOAAAAAAAAAARD
+
+        // for every column, just add the list by column
+        for (int c = 0; c < 6; c++) 
+        {
+            String category = categories[c];
+
+            java.util.List<Question> list = bank.getCategoryQuestions(category);
+
+            for (int r = 0; r < 5; r++) 
+            {
+                boardQuestions[r][c] = list.get(r);
+            }
+        }
+
 
 
         // stuff to fix ugly looking buttons after being clicked - ok burh it still doestn work its fine
@@ -128,17 +145,25 @@ public class GamePage extends JPanel{
                 // made question page, replacing hannah's code
                 // it must be done
 
+                // making the actual questions appear from the random categories
+
+
+
+
+
                 final int row = r;
                 final int col = c;
 
-        bu.addActionListener(e -> 
+        bu.addActionListener
+        (e -> 
         {
 
             bu.setEnabled(false);
             bu.setBackground(Color.GRAY);
 
             // TEST QUESTION
-            Question q = new Question("Math","What is 2+2","4",10);
+            // alr replacing it this time
+            Question q = boardQuestions[row][col];
 
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
 
@@ -146,7 +171,7 @@ public class GamePage extends JPanel{
 
             popup.setVisible(true);
         }
-    );
+        );
                 grid.add(bu);
             }
         }
