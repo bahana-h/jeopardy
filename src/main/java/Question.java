@@ -35,6 +35,11 @@ public class Question
         return myScore;
     }
 
+    public void setScore(int score)
+    {
+        myScore = score;
+    }
+
     public String getQuestion()
     {
         return myQuestion;

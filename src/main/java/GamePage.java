@@ -1,17 +1,25 @@
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-// import java.awt.Font;
-// import java.awt.GridLayout;
-// import java.awt.Color;
-// import java.awt.Dimension;
-import java.awt.event.*;
-import java.awt.event.ActionListener;
-import java.time.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 // sources: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html, https://docs.oracle.com/javase/8/docs/api/java/awt/GridLayout.html
 
 public class GamePage extends JPanel{
+
+    // array type data for the board
+    private Question[][] boardQuestions;
+    private QuestionBank bank;
 
     // TODO DO THE CATEGORY GENERATING STUFF
 
@@ -23,6 +31,31 @@ public class GamePage extends JPanel{
     // private static JLabel time = new JLabel("00:00");
 
     public GamePage() {
+
+        // making the bank and the 2d array that represents the board
+        this.bank = Processor.load("jeopardy.csv");
+
+        // the dimensions
+        boardQuestions = new Question[5][6];
+
+        // what to put at the top 
+        // cuz rn we just have 1,2,3,4,5,6
+        String[] categories = new String[6];
+
+        // adding random categories to the string name
+        // need just 6 random categories and add them to the array
+
+        for (int i = 0; i < 6; i++)
+        {
+            String randomCategory = bank.getRandomCategory();
+
+            categories[i] = randomCategory;
+
+
+        }
+
+
+
         // stuff to fix ugly looking buttons after being clicked - ok burh it still doestn work its fine
         UIManager.put("Button.disabledText", Color.BLACK);
 
@@ -62,7 +95,11 @@ public class GamePage extends JPanel{
 
         // top row w categories
         // TODO SOMEHOW GENERATE CATEGORIES AND LINK IT WHEN LIKE MAKING PROBLEMS AND SEEING IF ANSWERS ARE CORRECT
-        String[] categories = {"1", "2", "3", "4", "5", "6"};
+        
+        // replaced the stuff below
+        //String[] categories = {"1", "2", "3", "4", "5", "6"};
+
+
         for (String category : categories) {
             JLabel categor = new JLabel(category, SwingConstants.CENTER);
             // need this cuz i wana set a color in the back
@@ -86,14 +123,30 @@ public class GamePage extends JPanel{
                 // update: okay appretnly it js doesnt work
                 // bu.setFocusPainted(false);
                 // thhe action listener stuff
-                bu.addActionListener(e -> {
-                    // this means taht it cant be clicked again after it is clicked once
-                    // ok but also it made the formatting ugly so i tried changing it ok so it still doesnt work
-                    // apparently i need to do it before ok so i moved it
-                    bu.setEnabled(false);
-                    //bu.setForeground(Color.BLACK);
-                    bu.setBackground(Color.GRAY);
-                });
+
+
+                // made question page, replacing hannah's code
+                // it must be done
+
+                final int row = r;
+                final int col = c;
+
+        bu.addActionListener(e -> 
+        {
+
+            bu.setEnabled(false);
+            bu.setBackground(Color.GRAY);
+
+            // TEST QUESTION
+            Question q = new Question("Math","What is 2+2","4",10);
+
+            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
+
+            QuestionPage popup = new QuestionPage(frame, q);
+
+            popup.setVisible(true);
+        }
+    );
                 grid.add(bu);
             }
         }

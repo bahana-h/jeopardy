@@ -91,7 +91,7 @@ public class QuestionBank
         // because the chance of getting the same category is 
         // like what
         // 1/ (THOUSANDS squared)
-        
+
         return (getCategoryQuestions(randomCategory));
     }
 
@@ -118,6 +118,27 @@ public class QuestionBank
 
 
         return allCategoriesArray;
+    }
+
+
+    // adding new thing because i need it in the GamePage
+    // just generate a random category
+
+    public String getRandomCategory()
+    {
+        // get random category
+        // so we need to acess a random index from all the cateogires
+
+        // basically just the first part of the getRandomCategoryQuestions() method
+        // easy peasy
+
+        String[] allCategories = getAllCategories();
+
+        int randomIndex = (int)(Math.random() * (allCategories.length));
+
+        String randomCategory = allCategories[randomIndex];
+
+        return randomCategory;
     }
     
 
