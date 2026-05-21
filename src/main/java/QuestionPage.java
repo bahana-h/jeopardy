@@ -75,6 +75,10 @@ public class QuestionPage extends JDialog
             {
                 result.setText("Correct!");
                 result.setForeground(Color.GREEN);
+
+                //after stealing and it's correct
+                // remove the steal button
+                // idk how this is going to work though
             }
 
             else

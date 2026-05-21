@@ -10,15 +10,17 @@ public class PlayerComputer extends Player
 
     }
 
-    public boolean ifSteal(){
-        int stealVal = (int) (Math.random() * myPercentageSteal) + 1;
-        return (stealVal <= myPercentageSteal);
+    public boolean ifSteal()
+    {
+        double stealVal = Math.random();
+        return (stealVal < myPercentageSteal);
 
     }
 
-    public boolean ifCorrect(){
-        int correctVal = (int) (Math.random() * myPercentageCorrect) + 1;
-        return (correctVal <= myPercentageSteal);
+    public boolean ifCorrect()
+    {
+        double correctVal = (Math.random());
+        return (correctVal < myPercentageCorrect);
 
     }
 
