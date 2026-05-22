@@ -31,7 +31,8 @@ public class GamePage extends JPanel{
     // private static JLabel time = new JLabel("00:00");
 
     public GamePage() {
-
+        
+        
         // making the bank and the 2d array that represents the board
         this.bank = Processor.load("jeopardy.csv");
 
@@ -166,7 +167,8 @@ public class GamePage extends JPanel{
             Question q = boardQuestions[row][col];
 
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
-
+            System.out.println("CLICKED QUESTION!!");
+            stopwatch.setText("00:30");
             QuestionPage popup = new QuestionPage(frame, q);
 
             popup.setVisible(true);

@@ -1,4 +1,3 @@
-
 // this will be shown once the player clicks on a question to answer it
 // following the design of GUI pages hannah already made
 
@@ -14,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 public class QuestionPage extends JDialog
 {
@@ -29,6 +29,19 @@ public class QuestionPage extends JDialog
         panel.setLayout(new BorderLayout(10, 10));
         panel.setBackground(new Color(10, 10, 50));
 
+        final int TIME_LIMIT = 30;
+        int[] secondsLeft = {TIME_LIMIT};
+
+        
+        JLabel timerLabel = new JLabel(secondsLeft[0] + "s", SwingConstants.CENTER);
+        timerLabel.setForeground(Color.YELLOW);
+        timerLabel.setFont(new Font("Verdana", Font.BOLD, 18));
+
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.setBackground(new Color(10, 10, 50));
+        topPanel.add(timerLabel, BorderLayout.EAST);
+        panel.add(topPanel, BorderLayout.NORTH);
+
         // question text
         JLabel questionLabel = new JLabel(
             "<html><div style='text-align:center;'>" 
@@ -41,6 +54,9 @@ public class QuestionPage extends JDialog
         questionLabel.setFont(new Font("Verdana", Font.BOLD, 24));
 
         panel.add(questionLabel, BorderLayout.CENTER);
+
+        
+
 
         // bottom section
         JPanel bottom = new JPanel();
@@ -67,7 +83,40 @@ public class QuestionPage extends JDialog
         // we'll probably change this
         // it is too unforgiving now
 
+
+        Timer countdown = new Timer(1000, null);
+        countdown.addActionListener(e -> {
+            secondsLeft[0]--;
+            timerLabel.setText(secondsLeft[0] + "s");
+
+            
+            if (secondsLeft[0] <= 10) {
+                timerLabel.setForeground(Color.ORANGE);
+            }
+            
+            if (secondsLeft[0] <= 5) {
+                timerLabel.setForeground(Color.RED);
+            }
+
+            
+            if (secondsLeft[0] <= 0) {
+                countdown.stop();
+                answerField.setEnabled(false);
+                submit.setEnabled(false);
+                result.setText("Time's up!");
+                result.setForeground(Color.RED);
+                bottom.add(steal);
+                bottom.revalidate();
+                bottom.repaint();
+            }
+        });
+        countdown.start();
+
+        
         submit.addActionListener(e -> {
+            countdown.stop();
+            answerField.setEnabled(false);
+            submit.setEnabled(false);
 
             String userAnswer = answerField.getText().trim();
 
@@ -75,17 +124,14 @@ public class QuestionPage extends JDialog
             {
                 result.setText("Correct!");
                 result.setForeground(Color.GREEN);
-
-                //after stealing and it's correct
-                // remove the steal button
-                // idk how this is going to work though
             }
-
             else
             {
                 result.setText("Wrong!");
                 result.setForeground(Color.RED);
                 bottom.add(steal);
+                bottom.revalidate();
+                bottom.repaint();
             }
         });
 
