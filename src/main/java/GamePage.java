@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -46,31 +48,39 @@ public class GamePage extends JPanel{
         // adding random categories to the string name
         // need just 6 random categories and add them to the array
 
-        for (int i = 0; i < 6; i++)
-        {
+        // edits on how to not pick categories with elss than 5 questions
+        int countVALIDS = 0;
+        while (countVALIDS < 6) {
             String randomCategory = bank.getRandomCategory();
-
-            categories[i] = randomCategory;
-
-
+            List<Question> l = bank.getCategoryQuestions(randomCategory);
+            // checks if the category has at least 5 questions
+            if ((l != null) && (l.size() >= 5)) {
+                categories[countVALIDS] = randomCategory;
+                for (int r = 0; r < 5; r++) {
+                    boardQuestions[r][countVALIDS] = l.get(r);
+                }
+                countVALIDS++;
+            }
         }
 
         // alr categories done
 
         // NOW LET'S PUT THE QUESTIONS ON THE BOOOOAAAAAAAAAARD
 
+        // hannah edit : i combined this one with the other loop above this
+
         // for every column, just add the list by column
-        for (int c = 0; c < 6; c++) 
-        {
-            String category = categories[c];
+        // for (int c = 0; c < 6; c++) 
+        // {
+        //     String category = categories[c];
 
-            java.util.List<Question> list = bank.getCategoryQuestions(category);
+        //     java.util.List<Question> list = bank.getCategoryQuestions(category);
 
-            for (int r = 0; r < 5; r++) 
-            {
-                boardQuestions[r][c] = list.get(r);
-            }
-        }
+        //     for (int r = 0; r < 5; r++) 
+        //     {
+        //         boardQuestions[r][c] = list.get(r);
+        //     }
+        // }
 
 
 
@@ -119,7 +129,9 @@ public class GamePage extends JPanel{
 
 
         for (String category : categories) {
-            JLabel categor = new JLabel(category, SwingConstants.CENTER);
+            // i searched this up so this can help with text wrapping -> maintain centering
+            String htmlCat = "<html><body style='text-align: center;'>" + category + "</body></html>";
+            JLabel categor = new JLabel(htmlCat, SwingConstants.CENTER);
             // need this cuz i wana set a color in the back
             categor.setOpaque(true);
             categor.setBackground(new Color(0, 0, 150));
