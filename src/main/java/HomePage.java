@@ -58,7 +58,7 @@ public class HomePage extends JPanel {
         button.addActionListener(e -> {
             // place holder i had earlier
             // JOptionPane.showMessageDialog(this, "Game Loading...");
-            thing.showScreen("gamepg");
+            thing.showScreen("createpg");
         });
 
         // below was the stuff i did that made a new jframe - i referenced it when writing what is above but i basically rewrote it to work with jeopardy.java

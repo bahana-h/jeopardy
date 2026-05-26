@@ -24,10 +24,12 @@ public class Jeopardy extends JFrame {
         // initializing the screens
         HomePage homepg = new HomePage(this);
         GamePage gamepg = new GamePage();
+        PlayerCreationPage createpg = new PlayerCreationPage(this, gamepg);
 
         // add this stuff to the jpanel with everything
         everything.add(homepg, "homepg");
         everything.add(gamepg, "gamepg");
+        everything.add(createpg, "createpg");
 
         // add everything to the jframe
         add(everything);

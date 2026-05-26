@@ -18,7 +18,7 @@ import javax.swing.Timer;
 public class QuestionPage extends JDialog
 {
     
-        public QuestionPage(JFrame parent, Question q)
+    public QuestionPage(JFrame parent, Question q, GamePage gamePage)
     {
         super(parent, "Question", true);
 
@@ -72,9 +72,36 @@ public class QuestionPage extends JDialog
         bottom.add(submit);
         bottom.add(result);
 
+
+
+        
+
         // future stealing implementation?
         JButton steal = new JButton("steal?");
         //bottom.add(steal);
+
+
+        // keeping track
+        boolean[] stolen = {false};
+
+        // MAKING A WORKING STEAL
+        steal.addActionListener(e ->
+        {
+            // gotta remove this because it switches twice with the wrong check
+            //gamePage.switchTurns();
+
+            stolen[0] = true;
+
+            answerField.setEnabled(true);
+            submit.setEnabled(true);
+
+            answerField.setText("");
+
+            steal.setEnabled(false);
+
+            result.setText("Stolen!");
+            result.setForeground(Color.YELLOW);
+        });
 
         panel.add(bottom, BorderLayout.SOUTH);
 
@@ -122,16 +149,53 @@ public class QuestionPage extends JDialog
 
             if (userAnswer.equalsIgnoreCase(q.getAnswer()))
             {
-                result.setText("Correct!");
+                result.setText("Correcto!");
                 result.setForeground(Color.GREEN);
+
+                // gets whose turn it is
+                Player current = gamePage.getCurrentPlayer();
+
+                // award points
+                current.changeScore(q.getScore());
+
+                // refresh labels at top
+                gamePage.updateScoreLabels();
             }
             else
             {
-                result.setText("Wrong!");
+                result.setText("Nuh-uh!");
                 result.setForeground(Color.RED);
-                bottom.add(steal);
-                bottom.revalidate();
-                bottom.repaint();
+
+                // gets whose turn it is
+                Player current = gamePage.getCurrentPlayer();
+
+                // subtract points
+                current.changeScore(-q.getScore());
+
+                // refresh labels
+                gamePage.updateScoreLabels();
+
+                // switch whose turn it is
+
+                // OKay ookay
+                // now we have to also consider the steal
+
+                if (!stolen[0])
+                {
+                    gamePage.switchTurns();
+
+                    bottom.add(steal);
+                    bottom.revalidate();
+                    bottom.repaint();
+                }
+
+                // gamePage.switchTurns();
+
+                // bottom.add(steal);
+                // bottom.revalidate();
+                // bottom.repaint();
+
+
             }
         });
 

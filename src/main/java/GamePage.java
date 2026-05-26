@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -18,6 +17,12 @@ import javax.swing.UIManager;
 // sources: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html, https://docs.oracle.com/javase/8/docs/api/java/awt/GridLayout.html
 
 public class GamePage extends JPanel{
+
+    private Player player1;
+    private Player player2;
+
+    private JLabel player1score;
+    private JLabel player2score;
 
     // array type data for the board
     private Question[][] boardQuestions;
@@ -100,18 +105,16 @@ public class GamePage extends JPanel{
         // stuff thats at the top
         Font text = new Font("Verdana", Font.BOLD, 20);
         // TODO MAKE THE POINT VALUE UPDATE
-        JLabel player1score = new JLabel("Player 1: 0", SwingConstants.CENTER);
-        player1score.setForeground(Color.WHITE);
+        player1score = new JLabel("Player one: 0", SwingConstants.CENTER);        player1score.setForeground(Color.WHITE);
         player1score.setFont(text);
         top.add(player1score);
         // TODO MAKE THE STOP WATCH
-        JLabel stopwatch = new JLabel("00:00", SwingConstants.CENTER);
+        JLabel stopwatch = new JLabel("Jeopardy", SwingConstants.CENTER);
         stopwatch.setForeground(Color.WHITE);
         stopwatch.setFont(text);
         top.add(stopwatch);
         // TODO MAKE THE POINT VALUE UPDATE
-        JLabel player2score = new JLabel("Player 2: 0", SwingConstants.CENTER);
-        player2score.setForeground(Color.WHITE);
+        player2score = new JLabel("Player two: 0", SwingConstants.CENTER);        player2score.setForeground(Color.WHITE);
         player2score.setFont(text);
         top.add(player2score);
         // adding top stuff to the TOP (NORTH) of the game page
@@ -180,8 +183,8 @@ public class GamePage extends JPanel{
 
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
             System.out.println("CLICKED QUESTION!!");
-            stopwatch.setText("00:30");
-            QuestionPage popup = new QuestionPage(frame, q);
+            
+            QuestionPage popup = new QuestionPage(frame, q, this);
 
             popup.setVisible(true);
         }
@@ -245,5 +248,43 @@ public class GamePage extends JPanel{
         // }
         // gameboard.add(grid);
         // gameboard.setVisible(true);
+
+
+
     }
+
+    // need new methods
+
+    public void setPlayers(Player p1, Player p2)
+    {
+        player1 = p1;
+        player2 = p2;
+
+        player1score.setText(player1.getName() + ": " + player1.getScore());
+        player2score.setText(player2.getName() + ": " + player2.getScore());
+    }
+
+    public void updateScoreLabels()
+    {
+        player1score.setText(player1.getName() + ": " + player1.getScore());
+        player2score.setText(player2.getName() + ": " + player2.getScore());
+    }
+
+    public Player getCurrentPlayer()
+    {
+        if (player1.isTurn())
+        {
+            return player1;
+        }
+
+        return player2;
+    }
+
+    public void switchTurns()
+    {
+        player1.changeTurn();
+        player2.changeTurn();
+    }
+
+
 }
