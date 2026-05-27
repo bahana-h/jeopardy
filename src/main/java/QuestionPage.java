@@ -114,6 +114,8 @@ public class QuestionPage extends JDialog
         // it is too unforgiving now
 
 
+        // timer
+
         Timer countdown = new Timer(1000, null);
         countdown.addActionListener(e -> {
             secondsLeft[0]--;
@@ -128,16 +130,112 @@ public class QuestionPage extends JDialog
                 timerLabel.setForeground(Color.RED);
             }
 
-            
+            // bug where iti doesn't acctually do anything if time runs out
             if (secondsLeft[0] <= 0) {
                 countdown.stop();
                 answerField.setEnabled(false);
                 submit.setEnabled(false);
                 result.setText("Time's up!");
                 result.setForeground(Color.RED);
-                bottom.add(steal);
                 bottom.revalidate();
                 bottom.repaint();
+
+                gamePage.switchTurns();
+
+                // copy pasta
+                Player currentPlayer = gamePage.getCurrentPlayer();
+
+        // check 
+        if (currentPlayer.isComputer())
+        {
+            // disable the answer fields
+            // or you could put a jumbled answer in there
+            // but idk 
+
+            answerField.setEnabled(false);
+            submit.setEnabled(false);
+
+            // give some naturality and time
+            result.setText(currentPlayer.getName() + " is thinking...");
+
+            // eh let's keep ti orange
+            result.setForeground(Color.ORANGE);
+
+            // time delay for thinking seems unnatural
+            //TODO: maybe randomize it?
+            // rn 10 seconds
+            Timer botAnswerTimer = new Timer(10000, 
+                
+            // what to do
+
+            // alright now i have to add the computer chooses next question code
+            /// in two places
+            /// if it gets it right normally
+            /// or if it steals and gets it right
+            
+
+            e2->
+            {
+                countdown.stop();
+
+                // right or wrong
+
+
+                if (currentPlayer.ifCorrect())
+                {
+                    result.setText(currentPlayer.getName() + " got it right!");
+                    result.setForeground(Color.GREEN);
+
+                    currentPlayer.changeScore(q.getScore());
+
+                    // chooses next question
+                    Timer nextQuestion = new Timer(1500,
+                    e3->
+                    {
+                        //gotta close the prvious question or it gets messy
+                        dispose();
+
+                        gamePage.computerChooseQuestion();
+                    });
+
+                    nextQuestion.setRepeats(false);
+                    nextQuestion.start();
+                }
+
+
+                else
+                {
+                    result.setText(currentPlayer.getName() + " got it wrong!");
+                    result.setForeground(Color.RED);
+
+                    currentPlayer.changeScore(-q.getScore());
+
+
+                    gamePage.switchTurns();
+
+                    // bug where at the end of a pick by the bot
+                    // the steal button doesn't show up for the human player
+
+                    bottom.add(steal);
+                    bottom.revalidate();
+                    bottom.repaint();
+
+                    //so jst add it
+                    // same for the other scenario
+                    //i'll copy paste it over there
+                }
+
+
+                // change everything
+                gamePage.updateScoreLabels();
+            });
+
+
+            botAnswerTimer.setRepeats(false);
+            botAnswerTimer.start();
+        }
+                
+
             }
         });
         countdown.start();
