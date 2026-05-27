@@ -197,6 +197,7 @@ public class GamePage extends JPanel{
                     // TEST QUESTION
                     // alr replacing it this time
                     Question q = boardQuestions[row][col];
+                    q.setScore(100*(row+1));
 
                     JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
                     System.out.println("CLICKED QUESTION!!");

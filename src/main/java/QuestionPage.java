@@ -1,4 +1,6 @@
-// this will be shown once the player clicks on a question to answer it
+
+//TODO:doulbe points glitch
+// award points by row
 // following the design of GUI pages hannah already made
 
 //TODO: add it so the answer shows up in needed cases
