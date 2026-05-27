@@ -10,6 +10,8 @@ public class PlayerComputer extends Player
 
     }
 
+    // overriding it
+    @Override
     public boolean ifSteal()
     {
         double stealVal = Math.random();
@@ -17,12 +19,24 @@ public class PlayerComputer extends Player
 
     }
 
+    @Override
     public boolean ifCorrect()
     {
         double correctVal = (Math.random());
         return (correctVal < myPercentageCorrect);
 
     }
+
+    // if it's a computer player
+    // it returns true if it's a computer player
+    // because it ovverrode the acc player false return method
+    @Override
+    public boolean isComputer()
+    {
+        return true;
+    }
+
+
 
 
 

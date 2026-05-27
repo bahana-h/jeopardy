@@ -28,6 +28,9 @@ public class GamePage extends JPanel{
     private Question[][] boardQuestions;
     private QuestionBank bank;
 
+    // bot board
+    private JButton[][] boardButtons;
+
     // TODO DO THE CATEGORY GENERATING STUFF
 
     // js putting it here but rgb for answered questions: 147 149 185 - nvm not being used
@@ -38,6 +41,14 @@ public class GamePage extends JPanel{
     // private static JLabel time = new JLabel("00:00");
 
     public GamePage() {
+
+        // ok now we gotta make the bot pick the next question randomly itself
+        // so let's just make the exact same thing
+        // but for the bot
+        // so it can play an dhave fun too
+        boardButtons = new JButton[5][6];
+
+
         
         
         // making the bank and the 2d array that represents the board
@@ -146,7 +157,8 @@ public class GamePage extends JPanel{
 
         // the buttons w point values
         for (int r = 0; r <= 4; r++) {
-            for (int c = 0; c < 6; c++) {
+            for (int c = 0; c < 6; c++) 
+            {
                 // the point values
                 JButton bu = new JButton("" + ((r + 1) * 100)); // aprently it can only be string and i cant cast for some reason so i js did this
                 bu.setFont(new Font("Verdana", Font.BOLD, 18));
@@ -163,35 +175,42 @@ public class GamePage extends JPanel{
 
                 // making the actual questions appear from the random categories
 
-
-
-
+                // OK OK OK
+                // the computer player selection
+                // put all the buttons in an array
+                boardButtons[r][c] = bu;
+                // now ...it... knows everything
 
                 final int row = r;
                 final int col = c;
 
-        bu.addActionListener
-        (e -> 
-        {
+                bu.addActionListener
+                (e -> 
+                {
 
-            bu.setEnabled(false);
-            bu.setBackground(Color.GRAY);
+                    bu.setEnabled(false);
+                    bu.setBackground(Color.GRAY);
 
-            // TEST QUESTION
-            // alr replacing it this time
-            Question q = boardQuestions[row][col];
+                    // TEST QUESTION
+                    // alr replacing it this time
+                    Question q = boardQuestions[row][col];
 
-            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
-            System.out.println("CLICKED QUESTION!!");
-            
-            QuestionPage popup = new QuestionPage(frame, q, this);
+                    JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(GamePage.this);
+                    System.out.println("CLICKED QUESTION!!");
+                    
+                    QuestionPage popup = new QuestionPage(frame, q, this);
 
-            popup.setVisible(true);
-        }
-        );
+                    popup.setVisible(true);
+                }
+
+                );
+                
                 grid.add(bu);
+                
+                
             }
-        }
+    
+    }
 
         // Add the 6x6 grid to the CENTER of the GamePage
         add(grid, BorderLayout.CENTER);
@@ -284,6 +303,28 @@ public class GamePage extends JPanel{
     {
         player1.changeTurn();
         player2.changeTurn();
+    }
+
+    // method for the computer player to click a question
+    public void computerChooseQuestion()
+    {
+        // keep choosing random questions
+        while(true)
+        {
+
+            int randomRow = (int)(Math.random() * 5);
+            int randomCol = (int)(Math.random() * 6);
+            JButton chosen = boardButtons[randomRow][randomCol];
+
+            // until you find an unanswered one
+            if (chosen.isEnabled())
+            {
+                // acc clicks for the computer
+                chosen.doClick();
+
+                return;
+            }
+        }
     }
 
 

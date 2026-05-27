@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -80,11 +82,52 @@ public class PlayerCreationPage extends JPanel
         add(p2field, gr);
 
         // BUTTON
-        gr.gridy = 3;
+        // moving this down so we can add the comp. player seletion
+        //3 to 5
+        gr.gridy = 5;
         gr.gridx = 0;
         gr.gridwidth = 2;
         gr.insets = new Insets(40, 0, 0, 0);
         add(start, gr);
+
+        // have to put this before the action listener
+
+
+        // OK
+        // more features
+        // computer player now!!!! wowza
+        // just make a tickbox that they can select
+        // to play against one
+        // and choose the difficulty
+        // i'll  let them name the bot whatever they want
+
+        // ask
+        JCheckBox computerBox = new JCheckBox("Play against a Bot as Player 2?");
+
+        computerBox.setBackground(new Color(10, 10, 50));
+        computerBox.setForeground(Color.WHITE);
+        computerBox.setFont(textFont);
+
+        // difficulty dropdown
+        String[] difficulties = {"Easy", "Medium", "Hard"};
+        JComboBox<String> difficultyBox = new JComboBox<>(difficulties);
+
+        difficultyBox.setFont(textFont);
+
+
+
+        // now let's put them whre we need them
+        // select
+        gr.gridy = 3;
+        gr.gridx = 0;
+        gr.gridwidth = 2;
+        add(computerBox, gr);
+
+        // hardness
+        gr.gridy = 4;
+        add(difficultyBox, gr);
+
+
 
         // button logic
         start.addActionListener(e ->
@@ -103,8 +146,55 @@ public class PlayerCreationPage extends JPanel
                 player2name = "Player Two";
             }
 
+            // OK
+            // have to redo this
+            // because player 2 can be a little wall-e now
+            // or maybe the guy from short circuit he's cute too
+            
             Player player1 = new Player(player1name, 0, true);
-            Player player2 = new Player(player2name, 0, false);
+
+
+           // Player player2 = new Player(player2name, 0, false);
+
+           Player player2;
+           // atts
+           double stealChance = 0.00;
+           double correctChance = 0.00;
+
+           if (computerBox.isSelected())
+            {
+                String difficulty = (String) difficultyBox.getSelectedItem();
+
+                // settings
+
+                if (difficulty.equals("Easy"))
+                {
+                    stealChance = 0.75;
+                    correctChance = 0.60;
+                }
+
+                
+                if (difficulty.equals("Medium"))
+                {
+                    stealChance = 0.85;
+                    correctChance = 0.70;
+                }
+
+                if (difficulty.equals("Hard"))
+                {
+                    stealChance = 0.95;
+                    correctChance = 0.85;
+                }
+
+                player2 = 
+                new PlayerComputer
+                (player2name,0,false,stealChance, correctChance);
+            }
+
+            else
+            {
+                player2 = new Player(player2name, 0, false);
+            }
 
             // give the players to game page
             gamepg.setPlayers(player1, player2);
@@ -112,5 +202,10 @@ public class PlayerCreationPage extends JPanel
             // switch screen
             thing.showScreen("gamepg");
         });
+
+
+
+
+    
     }
 }

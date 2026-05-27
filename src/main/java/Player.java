@@ -58,6 +58,24 @@ public boolean isTurn()
     return isTurn;
 }
 
+// more for dealing with computer player
+// adding these so we can call them and check no problems
+public boolean ifSteal()
+{
+    return false;
+}
+
+public boolean ifCorrect()
+{
+    return false;
+}
+
+public boolean isComputer()
+{
+    return false;
+}
+
+
 
     
 }

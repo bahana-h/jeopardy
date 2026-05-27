@@ -117,11 +117,11 @@ public class QuestionPage extends JDialog
             timerLabel.setText(secondsLeft[0] + "s");
 
             
-            if (secondsLeft[0] <= 10) {
+            if (secondsLeft[0] <= 20) {
                 timerLabel.setForeground(Color.ORANGE);
             }
             
-            if (secondsLeft[0] <= 5) {
+            if (secondsLeft[0] <= 10) {
                 timerLabel.setForeground(Color.RED);
             }
 
@@ -139,7 +139,109 @@ public class QuestionPage extends JDialog
         });
         countdown.start();
 
+
+
+
+        // ALRIGHT ALRIGHT
+        // the bot gotta be able to answer questions on it's own
+        // doing this after the steal methods so 
+        // it's basically the same sturcutre as taht
+
+        Player currentPlayer = gamePage.getCurrentPlayer();
+
+        // check 
+        if (currentPlayer.isComputer())
+        {
+            // disable the answer fields
+            // or you could put a jumbled answer in there
+            // but idk 
+
+            answerField.setEnabled(false);
+            submit.setEnabled(false);
+
+            // give some naturality and time
+            result.setText(currentPlayer.getName() + " is thinking...");
+
+            // eh let's keep ti orange
+            result.setForeground(Color.ORANGE);
+
+            // time delay for thinking seems unnatural
+            //TODO: maybe randomize it?
+            // rn 10 seconds
+            Timer botAnswerTimer = new Timer(10000, 
+                
+            // what to do
+
+            // alright now i have to add the computer chooses next question code
+            /// in two places
+            /// if it gets it right normally
+            /// or if it steals and gets it right
+            
+
+            e ->
+            {
+                countdown.stop();
+
+                // right or wrong
+
+
+                if (currentPlayer.ifCorrect())
+                {
+                    result.setText(currentPlayer.getName() + " got it right!");
+                    result.setForeground(Color.GREEN);
+
+                    currentPlayer.changeScore(q.getScore());
+
+                    // chooses next question
+                    Timer nextQuestion = new Timer(1500,
+                    e2 ->
+                    {
+                        //gotta close the prvious question or it gets messy
+                        dispose();
+
+                        gamePage.computerChooseQuestion();
+                    });
+
+                    nextQuestion.setRepeats(false);
+                    nextQuestion.start();
+                }
+
+
+                else
+                {
+                    result.setText(currentPlayer.getName() + " got it wrong!");
+                    result.setForeground(Color.RED);
+
+                    currentPlayer.changeScore(-q.getScore());
+
+                    gamePage.switchTurns();
+
+                    // bug where at the end of a pick by the bot
+                    // the steal button doesn't show up for the human player
+
+                    bottom.add(steal);
+                    bottom.revalidate();
+                    bottom.repaint();
+
+                    //so jst add it
+                    // same for the other scenario
+                    //i'll copy paste it over there
+                }
+
+
+                // change everything
+                gamePage.updateScoreLabels();
+            });
+
+
+            botAnswerTimer.setRepeats(false);
+            botAnswerTimer.start();
+        }
+
+
+
         
+        // AFTER the answer's been submitted by the player who's turn it is
         submit.addActionListener(e -> {
             countdown.stop();
             answerField.setEnabled(false);
@@ -180,13 +282,118 @@ public class QuestionPage extends JDialog
                 // OKay ookay
                 // now we have to also consider the steal
 
+
+                // OK OK
+                // NOW THIS GOTTA BE CHANGED FOR THE COMPUTER PLAYER TO WORK
+
+                // check if it's a computer taking a turn
+                // then do the whole steal and correct managing
+
                 if (!stolen[0])
                 {
                     gamePage.switchTurns();
 
-                    bottom.add(steal);
-                    bottom.revalidate();
-                    bottom.repaint();
+                    // check
+                    Player nextPlayer = gamePage.getCurrentPlayer();
+
+                    // if computer
+                    if (nextPlayer.isComputer())
+                    {
+
+                        // now if it happens instantly
+                        // it might be confusing
+                        // so let's make a timer
+
+                        result.setText(nextPlayer.getName() + " is thinking...");
+                        result.setForeground(Color.ORANGE);
+
+                        //
+                        Timer botTimer = new Timer(10000, 
+                    
+                        ev ->
+                        {
+                            // managing all the stealing
+
+                            // if steal, right wrong
+                            // doesn't steal, well , that's it
+
+                            if (nextPlayer.ifSteal())
+                            {
+
+
+                                if (nextPlayer.ifCorrect())
+                                {
+                                    result.setText(nextPlayer.getName() + " got it right!");
+                                    result.setForeground(Color.GREEN);
+
+                                    nextPlayer.changeScore(q.getScore());
+
+                                    // now the bot chooses a new one
+                                    // if it steals and gets it right
+                                    Timer nextQuestion = new Timer(1500,
+                                    e2 ->
+                                    {
+                                        // same thing
+                                        dispose();
+                                        gamePage.computerChooseQuestion();
+                                    });
+
+                                    nextQuestion.setRepeats(false);
+                                    nextQuestion.start();
+                                }
+
+
+                                else
+                                {
+                                    result.setText(nextPlayer.getName() + " got it wrong!");
+                                    result.setForeground(Color.RED);
+
+                                    nextPlayer.changeScore(-q.getScore());
+
+                                    gamePage.switchTurns();
+
+                                    // bug where at the end of a pick by the bot
+                                    // the steal button doesn't show up for the human player
+
+                                    bottom.add(steal);
+                                    bottom.revalidate();
+                                    bottom.repaint();
+
+                                    //so jst add it
+                                    // same for the other scenario
+                                    //i'll copy paste it over there
+                                }
+
+                                gamePage.updateScoreLabels();
+
+                            }
+
+
+                            else
+                            {
+                                result.setText(nextPlayer.getName() + " didn't steal.");
+
+                                gamePage.switchTurns();
+                            }
+                        });
+
+                        botTimer.setRepeats(false);
+                        botTimer.start();
+                    }
+
+
+
+                    // if it's not a computer
+                    // it's jst regular old joe
+                    // so the regular block from before
+                    else
+                    {
+                        bottom.add(steal);
+                        bottom.revalidate();
+                        bottom.repaint();
+                    }
+
+
                 }
 
                 // gamePage.switchTurns();
