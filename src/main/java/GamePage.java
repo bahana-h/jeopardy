@@ -24,6 +24,9 @@ public class GamePage extends JPanel{
     private JLabel player1score;
     private JLabel player2score;
 
+    // for knowing when game ends
+    private int questionsLeft = 30; // 5 rows × 6 cols
+
     // array type data for the board
     private Question[][] boardQuestions;
     private QuestionBank bank;
@@ -201,6 +204,9 @@ public class GamePage extends JPanel{
                     QuestionPage popup = new QuestionPage(frame, q, this);
 
                     popup.setVisible(true);
+
+                    // decrement
+                    questionFinished();
                 }
 
                 );
@@ -325,6 +331,39 @@ public class GamePage extends JPanel{
                 return;
             }
         }
+    }
+
+
+    // method for checkinf if the game is over
+    public void checkGameOver() 
+    {
+        if (questionsLeft <= 0) {
+
+            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            if (frame instanceof Jeopardy j) 
+            {
+                j.goToEndPage(this);
+            }
+        }
+    }
+
+    public void questionFinished() 
+    {
+        questionsLeft--;
+        checkGameOver();
+    }
+
+    // getters for players
+
+    public Player getPlayer1() 
+    {
+        return player1;
+    }
+
+    public Player getPlayer2() 
+    {
+        return player2;
     }
 
 

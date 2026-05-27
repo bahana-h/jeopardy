@@ -1,6 +1,9 @@
 // this will be shown once the player clicks on a question to answer it
 // following the design of GUI pages hannah already made
 
+//TODO: add it so the answer shows up in needed cases
+
+
 // all the imports
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -214,6 +217,7 @@ public class QuestionPage extends JDialog
 
                     currentPlayer.changeScore(-q.getScore());
 
+
                     gamePage.switchTurns();
 
                     // bug where at the end of a pick by the bot
@@ -247,6 +251,7 @@ public class QuestionPage extends JDialog
             answerField.setEnabled(false);
             submit.setEnabled(false);
 
+
             String userAnswer = answerField.getText().trim();
 
             if (userAnswer.equalsIgnoreCase(q.getAnswer()))
@@ -260,9 +265,11 @@ public class QuestionPage extends JDialog
                 // award points
                 current.changeScore(q.getScore());
 
+
                 // refresh labels at top
                 gamePage.updateScoreLabels();
             }
+
             else
             {
                 result.setText("Nuh-uh!");
@@ -273,6 +280,7 @@ public class QuestionPage extends JDialog
 
                 // subtract points
                 current.changeScore(-q.getScore());
+
 
                 // refresh labels
                 gamePage.updateScoreLabels();

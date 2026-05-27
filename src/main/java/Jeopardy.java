@@ -57,4 +57,23 @@ public class Jeopardy extends JFrame {
             new Jeopardy();
         });
     }
+
+    public void goToEndPage(GamePage gamepg) 
+    {
+        EndPage endpg = new EndPage(this, gamepg);
+        everything.add(endpg, "endpg");
+        showScreen("endpg");
+    }
+
+    public void restartGame(Player p1, Player p2) 
+    {
+
+        GamePage newGame = new GamePage();
+        newGame.setPlayers(p1, p2);
+
+        everything.add(newGame, "gamepg");
+        overall.show(everything, "gamepg");
+    }
+
+    
 }
