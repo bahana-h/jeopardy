@@ -1,0 +1,87 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@argfile
+--no-fonts
+-classpath
+'C:/Users/alex/.m2/repository/com/opencsv/opencsv/5.9/opencsv-5.9.jar;C:/Users/alex/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar;C:/Users/alex/.m2/repository/org/apache/commons/commons-text/1.11.0/commons-text-1.11.0.jar;C:/Users/alex/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar;C:/Users/alex/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar;C:/Users/alex/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar;C:/Users/alex/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'24'
+-sourcepath
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/alex/Documents/GitHub/jeopardy/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'jeopardy 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'jeopardy 1.0-SNAPSHOT API'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/EndPage.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/GamePage.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/HomePage.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/Jeopardy.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/Player.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/PlayerComputer.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/PlayerCreationPage.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/Processor.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/Question.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/QuestionBank.java'
+'C:/Users/alex/Documents/GitHub/jeopardy/src/main/java/QuestionPage.java'
+C:\Users\alex\.m2\repository\com\opencsv\opencsv\5.9\opencsv-5.9.jar = 1778903973509
+C:\Users\alex\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar = 1778903973576
+C:\Users\alex\.m2\repository\org\apache\commons\commons-text\1.11.0\commons-text-1.11.0.jar = 1778903973518
+C:\Users\alex\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar = 1778903973510
+C:\Users\alex\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar = 1778903973489
+C:\Users\alex\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar = 1778903973662
+C:\Users\alex\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar = 1778903973698
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\EndPage.java = 1779853471583
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\GamePage.java = 1779923792573
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\HomePage.java = 1779939691617
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\Jeopardy.java = 1779853075621
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\Player.java = 1779841389192
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\PlayerComputer.java = 1779841389192
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\PlayerCreationPage.java = 1779939658651
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\Processor.java = 1778984041273
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\Question.java = 1779326115728
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\QuestionBank.java = 1779326115586
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java\QuestionPage.java = 1779923457450
+C:\Users\alex\Documents\GitHub\jeopardy\src\main\java = 1779756004304
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\allclasses-index.html = 1779941365927
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\allpackages-index.html = 1779941365933
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\element-list = 1779941365637
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\EndPage.html = 1779941365124
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\GamePage.html = 1779941365305
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\help-doc.html = 1779941366001
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\HomePage.html = 1779941365342
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\index-all.html = 1779941365985
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\index.html = 1779941365994
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\Jeopardy.html = 1779941365437
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\member-search-index.js = 1779941365944
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\module-search-index.js = 1779941365936
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\overview-tree.html = 1779941365889
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\package-search-index.js = 1779941365939
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\package-summary.html = 1779941365660
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\package-tree.html = 1779941365679
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\package-use.html = 1779941365874
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\Player.html = 1779941365468
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\PlayerComputer.html = 1779941365498
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\PlayerCreationPage.html = 1779941365528
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\Processor.html = 1779941365540
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\Question.html = 1779941365563
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\QuestionBank.html = 1779941365592
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\QuestionPage.html = 1779941365631
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\search.html = 1779941365989
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\serialized-form.html = 1779941365727
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\tag-search-index.js = 1779941365947
+C:\Users\alex\Documents\GitHub\jeopardy\target\reports\apidocs\type-search-index.js = 1779941365941
