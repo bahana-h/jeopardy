@@ -27,12 +27,12 @@ public class PlayerCreationPage extends JPanel
         Font textFont = new Font("Verdana", Font.PLAIN, 20);
 
         // title
-        JLabel title = new JLabel("create your players", SwingConstants.CENTER);
+        JLabel title = new JLabel("Create your players", SwingConstants.CENTER);
         title.setForeground(Color.WHITE);
         title.setFont(titleFont);
 
         // player 1 label
-        JLabel p1 = new JLabel("player one:");
+        JLabel p1 = new JLabel("Player one:");
         p1.setForeground(Color.WHITE);
         p1.setFont(textFont);
 
@@ -41,7 +41,7 @@ public class PlayerCreationPage extends JPanel
         p1field.setFont(textFont);
 
         // player 2 label
-        JLabel p2 = new JLabel("player two:");
+        JLabel p2 = new JLabel("Player two:");
         p2.setForeground(Color.WHITE);
         p2.setFont(textFont);
 
@@ -50,7 +50,7 @@ public class PlayerCreationPage extends JPanel
         p2field.setFont(textFont);
 
         // button
-        JButton start = new JButton("start game");
+        JButton start = new JButton("Start Game");
         start.setFont(textFont);
         start.setPreferredSize(new Dimension(220, 60));
 

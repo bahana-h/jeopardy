@@ -29,13 +29,13 @@ public class HomePage extends JPanel {
         setBackground(new Color(10, 10, 50));
 
         // title
-        JLabel welcome = new JLabel("welcome to jeopardy!", SwingConstants.CENTER);
+        JLabel welcome = new JLabel("Welcome to Jeopardy!", SwingConstants.CENTER);
         //welcome.setBounds(400, 200, 700, 200); - didnt need this with gridbaglayout
         welcome.setFont(new Font("Verdana", Font.BOLD, 50));
         welcome.setForeground(Color.WHITE);
 
         // enter button
-        JButton button = new JButton("enter");
+        JButton button = new JButton("Enter");
         //button.setBounds(650, 600, 200, 50); - didnt need this with gridbaglayout
         button.setFont(new Font("Verdana", Font.PLAIN, 20));
         button.setPreferredSize(new Dimension(200, 80));
